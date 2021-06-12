@@ -6,6 +6,7 @@
 # tkinter.Tcl().eval('info patchlevel')
 
 # Import Modules ----
+import numpy as np
 from tkinter import *
 
 root = Tk()
@@ -18,21 +19,26 @@ Label(master=root, text='Click Ant One :',
 
 
 def madlib1():
-    animals = input('Enter an animal name: ')
-    profession = input('Enter a profession name: ')
-    cloth = input('Enter a piece of cloth name: ')
-    things = input('Enter a thing name: ')
-    name = input('Enter a name: ')
-    place = input('Enter a place name: ')
-    verb = input('Enter a verb in ing form: ')
-    food = input('food name: ')
 
-    print('Say ' + food + ', the photographer said as the camera flashed! ' +
-          name + ' and I had gone to ' + place + ' to get our photos taken on my birthday.' +
-          'The first photo we really wanted was a picture of us dressed as ' + animals +
-          ' pretending to be a ' + profession + '. When we saw the second photo,' +
-          'It was exactly what I wanted. We both looked like ' + things + ' wearing ' +
-          cloth + ' and ' + verb + ' --exactly what I had in mind.')
+    vars_inputs = ["food", "name",
+                   "place", "animals",
+                   "profession", "things",
+                   "cloth", "verb"]
+    inputs = ['food name: ', 'Enter a name: ',
+              'Enter a place name: ', 'Enter an animal name: ',
+              'Enter a profession name: ', 'Enter a thing name: ',
+              'Enter a piece of cloth name: ', 'Enter a verb in ing form: ']
+
+    dic = {}
+    for i in range(0, len(vars_inputs)):
+        dic[vars_inputs[i]] = input(inputs[i])
+
+    print('Say ' + list(dic)[0] + ', the photographer said as the camera flashed! ' +
+          list(dic)[1] + ' and I had gone to ' + list(dic)[2] + ' to get our photos taken on my birthday.' +
+          'The first photo we really wanted was a picture of us dressed as ' + list(dic)[3] +
+          ' pretending to be a ' + list(dic)[4] + '. When we saw the second photo,' +
+          'It was exactly what I wanted. We both looked like ' + list(dic)[5] + ' wearing ' +
+          list(dic)[6] + ' and ' + list(dic)[7] + ' --exactly what I had in mind.')
 
 
 Button(root,
