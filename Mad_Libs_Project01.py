@@ -24,10 +24,11 @@ def madlib1():
                    "place", "animals",
                    "profession", "things",
                    "cloth", "verb"]
-    inputs = ['food name: ', 'Enter a name: ',
-              'Enter a place name: ', 'Enter an animal name: ',
-              'Enter a profession name: ', 'Enter a thing name: ',
-              'Enter a piece of cloth name: ', 'Enter a verb in ing form: ']
+
+    inputs = ['food'] + ['Enter ' + i for i in ["a", "a place", "an animal",
+                                                "a profession", "a thing", "a piece of cloth",
+                                                'a verb in ing form: ']]
+    inputs[0:-1] = [i + ' name: ' for i in inputs[0:-1]]
 
     dic = {}
     for i in range(0, len(vars_inputs)):
