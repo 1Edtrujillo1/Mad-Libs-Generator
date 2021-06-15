@@ -9,6 +9,12 @@
 import numpy as np
 from tkinter import *
 
+# Import script reference ----
+from inputs_reference import vars_inputs, inputs, specific_dic
+
+
+# Mad Libs Generator ----
+
 root = Tk()
 root.geometry('300x300')
 root.title('ED Mad Libs Generator')
@@ -21,21 +27,7 @@ Label(master=root, text='Click Ant One :',
 
 def madlib1():
 
-    vars_inputs = ["food", "name",
-                   "place", "animals",
-                   "profession", "things",
-                   "cloth", "verb"]
-
-    inputs = ['food'] + ['Enter ' + i for i in ["a", "a place", "an animal",
-                                                "a profession", "a thing", "a piece of cloth",
-                                                'a verb in ing form: ']]
-    inputs[0:-1] = [i + ' name: ' for i in inputs[0:-1]]
-
-    dic = {}
-    for i in range(0, len(vars_inputs)):
-        dic[vars_inputs[i]] = input(inputs[i])
-
-    dic = list(dic.values())
+    dic = specific_dic(vars=vars_inputs[0], elements=inputs[0])
 
     print('Say ' + dic[0] + ', the photographer said as the camera flashed! ' +
           dic[1] + ' and I had gone to ' + dic[2] + ' to get our photos taken on my birthday.' +
@@ -47,19 +39,7 @@ def madlib1():
 
 def madlib2():
 
-    vars_inputs = ["person", "color", "foods", "adjective", "thing",
-                   "place", "verb", "adverb", "food", "things"]
-
-    inputs = [i + " name :"
-              for i in ["Enter " + i
-                        for i in ["a person", "a color", "food", "an adjective", "a thing",
-                                  "a place", "a verb", "an adverb", "a food", "a thing"]]]
-
-    dic = {}
-    for i in range(0, len(vars_inputs)):
-        dic[vars_inputs[i]] = input(inputs[i])
-
-    dic = list(dic.values())
+    dic = specific_dic(vars=vars_inputs[1], elements=inputs[1])
 
     print("Today we picked apple from " + dic[0] + "´s Orchard. I had no idea there" +
           " were so many different varieties of apples. I ate " + dic[1] + "apples straight" +
