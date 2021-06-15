@@ -50,11 +50,10 @@ def madlib2():
     vars_inputs = ["person", "color", "foods", "adjective", "thing",
                    "place", "verb", "adverb", "food", "things"]
 
-    inputs = ["Enter a person name: ", "Enter a color name: ",
-              "Enter food name: ", "Enter an adjective name: ",
-              "Enter a thing name: ", "Enter a place name: ",
-              "Enter an verb name: ", "Enter an adverb name: ",
-              "Enter a food name: ", "Enter a thing name: "]
+    inputs = [i + " name :"
+              for i in ["Enter " + i
+                        for i in ["a person", "a color", "food", "an adjective", "a thing",
+                                  "a place", "a verb", "an adverb", "a food", "a thing"]]]
 
     dic = {}
     for i in range(0, len(vars_inputs)):
