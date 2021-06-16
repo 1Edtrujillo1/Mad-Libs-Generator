@@ -5,24 +5,31 @@
 # Verify the version:
 # tkinter.Tcl().eval('info patchlevel')
 
-# Import Modules ----
+# 0.0 Import Modules ----
 import numpy as np
 from tkinter import *
 
-# Import script reference ----
+# 1.0 Import script reference ----
 from inputs_reference import vars_inputs, inputs, specific_dic
 
 
-# Mad Libs Generator ----
+# 2.0 Dialog Box Generator ----
 
 root = Tk()
 root.geometry('300x300')
 root.title('ED Mad Libs Generator')
 
-Label(master=root, text='Mad Libs Generator \n Have Fun',
-      font='arial 20 bold').pack()
-Label(master=root, text='Click Ant One :',
-      font='arial 15 bold').place(x=40, y=80)
+list(map(lambda func, args: func(args),
+         [lambda x: x.pack(), lambda x: x.place(x=40, y=80)],
+         list(map(
+             lambda text, font:
+             Label(master=root, text=text, font=font),
+             ['Mad Libs Generator \n Have Fun', 'Click Ant One :'],
+             ['arial 20 bold', 'arial 15 bold']
+         ))
+         ))
+
+# 3.0 Button commands ----
 
 
 def madlib1():
@@ -50,17 +57,22 @@ def madlib2():
           "wait to get home and cook with the apples. We are going to make apple" +
           dic[8] + " and " + dic[9] + " pies!")
 
+# 3.1 Buttons to execute commands ----
 
-Button(root,
-       text='The Photographer',
-       font='arial 15',
-       command=madlib1,
-       bg='ghost white').place(x=60, y=120)
 
-Button(root,
-       text='The Butterfly',
-       font='arial 15',
-       command=madlib2,
-       bg='ghost white').place(x=70, y=180)
+list(map(
+    lambda text, command, x, y:
+    Button(root,
+           text=text,
+           font='arial 15',
+           command=command,
+           bg='ghost white').place(x=x, y=y),
+    ['The Photographer', 'The Butterfly'],
+    [madlib1, madlib2],
+    [60, 70],
+    [120, 180]
+))
+
+# 4.0 Execution ----
 
 root.mainloop()

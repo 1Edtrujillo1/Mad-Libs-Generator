@@ -17,6 +17,16 @@ inputs = [inputs1, inputs2]
 
 
 def specific_dic(vars, elements):
+    """From two lists create a dictionary where the elements
+        are inputs that the user define the values.
+
+        Args:
+        vars: Keys inputs.
+        elements: elements of the keys
+
+        Returns:
+        Dictionary
+    """
     dic = {}
     for i in range(0, len(vars)):
         dic[vars[i]] = input(elements[i])
